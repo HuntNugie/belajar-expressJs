@@ -10,6 +10,7 @@ app.get("/",(req,res)=>{
     res.json({message:"Ini adalah backend dari ngkMovie",author:"Nugie kurniawan"})
 })
 
+// ini untuk searching
 app.get("/API/movie",async(req,res)=>{
     try{
         let response = await axios.get(API+"&s=ultraman")
@@ -27,6 +28,16 @@ app.get("/API/movie",async(req,res)=>{
         })
     } catch(err){
         res.json({status:"false",result:"gagal mengambil film"})
+    }
+})
+
+app.get("/API/movie/detail/:id",async(req,res)=>{
+    try {
+        const request = req.params.id;
+        const response = await axios.get(`${API}&i=${request}`)
+        res.json(response.data)
+    } catch (error) {
+        console.log(error.message)    
     }
 })
 
