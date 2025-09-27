@@ -50,6 +50,7 @@ const searchings = async(event)=>{
   const hasil = event.target.value
   const response = await getData(`${API}/API/movie?search=${hasil}`)
   renderUI(response)
+  history.pushState({page:"search",data:response},"",`?search=${hasil}`)
   } catch (error) {
   mains.innerHTML = `<h1>${error}</h1>`
   }
@@ -65,9 +66,19 @@ const cekGambar = function(){
 }
 searching.addEventListener("input",debounce(searchings,1000))
 
-window.onload = async(event)=>{
+window.addEventListener("popstate",(event)=>{
+  if(event.state == null){
+    defaults()
+  }else{
+    renderUI(event.state?.data)
+  }
+})
+
+window.onload = async()=>{
   if(history.state === null){
     defaults()
+  }else{
+    renderUI(history.state?.data)
   }
 }
 
