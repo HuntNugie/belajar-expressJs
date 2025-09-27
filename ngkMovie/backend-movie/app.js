@@ -17,6 +17,9 @@ app.get("/API/movie",async(req,res)=>{
         if(searching){
             response = await axios.get(`${API}&s=${searching}`)
         }
+        if(response.data.Response === "False"){
+            throw new Error(response.data.Error)
+        }
         const status = {status:"true",result:"berhasil ambil film"}
         res.json({
             res:status,
