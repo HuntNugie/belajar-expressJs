@@ -12,7 +12,11 @@ app.get("/",(req,res)=>{
 
 app.get("/API/movie",async(req,res)=>{
     try{
-        const response = await axios.get(API+"&s=ultraman")
+        let response = await axios.get(API+"&s=ultraman")
+        const searching = req.query?.search
+        if(searching){
+            response = await axios.get(`${API}&s=${searching}`)
+        }
         const status = {status:"true",result:"berhasil ambil film"}
         res.json({
             res:status,
