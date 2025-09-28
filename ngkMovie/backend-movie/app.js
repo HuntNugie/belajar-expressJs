@@ -6,7 +6,6 @@ const app = express()
 
 app.use(cors())
 app.get("/",(req,res)=>{
-    res.header("Allow-Access-Control-origin","*")
     res.json({message:"Ini adalah backend dari ngkMovie",author:"Nugie kurniawan"})
 })
 
