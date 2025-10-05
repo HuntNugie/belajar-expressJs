@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frontend</title>
+  </head>
+  <body class="bg-gray-100 text-gray-900">
+    <div id="app" class="max-w-7xl mx-auto p-6">
+      <!-- Judul -->
+      <h1 class="text-3xl font-bold mb-6 text-center">📚 Data Sekolah Indonesia</h1>
+
+      <!-- Search -->
+      <div class="mb-8 flex justify-center">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Cari nama sekolah..."
+          class="w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+        />
+      </div>
+
+      <!-- Kontainer hasil + detail -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Hasil Search -->
+        <div id="searchResults" class="bg-white shadow rounded-lg p-4">
+          <h2 class="text-xl font-semibold mb-4">Hasil Pencarian</h2>
+          <ul class="space-y-3">
+            <!-- Contoh data referensi -->
+            <li class="p-4 border border-gray-200 rounded hover:bg-gray-50 cursor-pointer transition">
+              <p class="font-medium">SD NEGERI PULAU TIDUNG 02 PG</p>
+              <p class="text-sm text-gray-600">Kab. Kepulauan Seribu • Kec. Kepulauan Seribu Selatan</p>
+              <p class="text-xs text-gray-500">Jl. Lapangan Hijau Rt. 05/03</p>
+            </li>
+            <li class="p-4 border border-gray-200 rounded hover:bg-gray-50 cursor-pointer transition">
+              <p class="font-medium">SDN PULAU HARAPAN 02 PAGI</p>
+              <p class="text-sm text-gray-600">Kab. Kepulauan Seribu • Kec. Kepulauan Seribu Utara</p>
+              <p class="text-xs text-gray-500">Pulau Sabira</p>
+            </li>
+          </ul>
+
+          <!-- Skeleton Loading (sementara dikomentar) -->
+          <!-- 
+          <div class="animate-pulse space-y-4">
+            <div class="h-4 bg-gray-300 rounded w-3/4"></div>
+            <div class="h-4 bg-gray-300 rounded w-1/2"></div>
+            <div class="h-4 bg-gray-300 rounded w-full"></div>
+          </div>
+          -->
+        </div>
+
+        <!-- Detail -->
+        <div id="detailPanel" class="bg-white shadow rounded-lg p-4">
+          <h2 class="text-xl font-semibold mb-4">Detail Sekolah</h2>
+          <div class="text-gray-500 italic">Belum ada detail dipilih...</div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
