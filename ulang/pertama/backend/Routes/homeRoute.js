@@ -1,9 +1,7 @@
 import {Router} from "express"
-
+import controller from "../Controller/indexController.js"
 const route = Router()
 
-route.get("/",(req,res)=>{
-    res.send("Berhasil")
-})
+route.get("/",controller.homeController)
 
 export default route
