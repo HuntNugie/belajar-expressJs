@@ -18,6 +18,7 @@ app.use(morgan("dev"))
 app.use("/",Routes.mainRoute)
 app.use("/home/api",Routes.homeRoute)
 app.use("/jenjang",Routes.jenjangRoute)
+app.use("/sekolah",Routes.searchRoute)
 
 // setup untuk server
 app.listen(port,(error)=>{
