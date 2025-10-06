@@ -7,6 +7,8 @@ route.get("/",(req,res)=>{
         nama:"Nugie kurniawan",
         api:{
             home:"/home/api",
+            search:"/sekolah/search",
+            jenjang:"/jenjang/"
         }
     }
     res.json(isi)
