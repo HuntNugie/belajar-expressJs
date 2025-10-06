@@ -14,7 +14,10 @@ const port = process.env.PORT
 app.use(cors())
 app.use(morgan("dev"))
 
+
+app.use("/",Routes.mainRoute)
 app.use("/home/api",Routes.homeRoute)
+app.use("/jenjang",Routes.jenjangRoute)
 
 // setup untuk server
 app.listen(port,(error)=>{
