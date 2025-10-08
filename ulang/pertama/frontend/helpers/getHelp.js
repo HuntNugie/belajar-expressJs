@@ -5,3 +5,4 @@ export const getData = async(api)=>{
     const data = response.data
     return data
 }
+

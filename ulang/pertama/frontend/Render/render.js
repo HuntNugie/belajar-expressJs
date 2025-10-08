@@ -1,4 +1,4 @@
-export const defaults = function (data) {
+export const render = data=> {
   const result = data.map (el => {
     return `<li class="p-4 border border-gray-200 rounded hover:bg-gray-50 cursor-pointer transition">
               <p class="font-medium">${el.sekolah}</p>
@@ -8,4 +8,12 @@ export const defaults = function (data) {
   }).join("");
   const list = document.getElementById("lists")
   list.innerHTML = result
+
 };
+
+export const loading = ()=>{
+  const loading = document.querySelector(".animate-pulse")
+  setTimeout(()=>{
+    loading.setAttribute("hidden","")
+  },500)
+}
