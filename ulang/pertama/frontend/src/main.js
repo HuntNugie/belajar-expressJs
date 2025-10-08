@@ -1,13 +1,11 @@
 import './style.css'
-import dotenv from "dotenv"
-import axios from 'axios'
+import { getData } from '../helpers/getHelp.js'
+import { defaults } from '../Render/renderDefault.js'
+
+const api=import.meta.env.VITE_API
 
 
-const API="http://localhost:3000"
-const getData = async()=>{
-  const response  = await axios.get(`${API}/home/api`)
-  const data = response.data
-  console.log(data)
+window.onload = async function(){
+  const data = await getData(`${api}/home/api`)
+  defaults(data)
 }
-
-getData()
