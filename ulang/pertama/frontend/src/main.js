@@ -23,3 +23,13 @@ window.onload = async function(){
     render(history.state?.data)
   }
 }
+
+window.addEventListener("popstate",async(event)=>{
+  if(event.state == null){
+    const data = await getData(`${api}/home/api`)
+    loading()
+    render(data)
+  }else if(event.state?.page == "search"){
+    render(event.state?.data)
+  }
+})
