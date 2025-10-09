@@ -1,3 +1,7 @@
+import { loadContact } from "../utils/indexUtils.js"
 export const index = (req,res)=>{
-    res.render("contact")
+    const contacts = loadContact()
+    res.render("contact",{
+        contacts
+    })
 }
