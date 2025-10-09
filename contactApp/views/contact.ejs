@@ -9,6 +9,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Nama</th>
                         <th scope="col">No telepon</th>
+                        <th scope="col">Email</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
@@ -18,7 +19,8 @@
                         <th scope="row"><%= i+=1 %></th>
                         <td><%= contact.nama %></td>
                         <td><%= contact.nohp %></td>
-                        <td><a href="" class="btn btn-primary btn-sm"><i class="bi bi-info-circle-fill"></i> detail</a></td>
+                        <td><%= contact.email %></td>
+                        <td><a href="/contact/<%= contact.email %>" class="btn btn-primary btn-sm"><i class="bi bi-info-circle-fill"></i> detail</a></td>
                     </tr>
                     <% }) %>
                 </tbody>
