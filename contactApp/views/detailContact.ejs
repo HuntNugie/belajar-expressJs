@@ -3,20 +3,23 @@
 <div class="container mt-5">
     <h1>Halaman detail contact</h1>
 
-   <div class="row">
-    <div class="col-12">
-         <div class="card" style="width: 18rem">
-        <div class="card-body">
-            <h5 class="card-title"><%= contact.nama %></h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary"><%= contact.nohp %></h6>
-            <p class="card-text">
-               <%= contact.email %>
-            </p>
-            <a href="/contact" class="card-link">kembali </a>
+    <div class="row">
+        <div class="col-12">
+            <% if (!contact) { %>
+            <div class="alert alert-danger" role="alert">Tidak ada detail contact</div>
+
+            <% }else{ %>
+            <div class="card" style="width: 18rem">
+                <div class="card-body">
+                    <h5 class="card-title"><%= contact.nama %></h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary"><%= contact.nohp %></h6>
+                    <p class="card-text"><%= contact.email %></p>
+                    <a href="/contact" class="card-link">kembali </a>
+                </div>
+            <% } %>
+            </div>
         </div>
     </div>
-    </div>
-   </div>
 </div>
 
 <%- include('layouts/footer.ejs') %>

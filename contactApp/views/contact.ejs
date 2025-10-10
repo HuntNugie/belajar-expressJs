@@ -14,15 +14,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% contacts.forEach((contact,i) => { %>
+                    <% if (contacts.length === 0) { %>
+                    <tr>
+                        <td colspan="5">
+                            <div class="alert alert-danger" role="alert">Anda belum menambahkan data contact</div>
+                        </td>
+                    </tr>
+                    <% }else{ %> <% contacts.forEach((contact,i) => { %>
                     <tr>
                         <th scope="row"><%= i+=1 %></th>
                         <td><%= contact.nama %></td>
                         <td><%= contact.nohp %></td>
                         <td><%= contact.email %></td>
-                        <td><a href="/contact/<%= contact.email %>" class="btn btn-primary btn-sm"><i class="bi bi-info-circle-fill"></i> detail</a></td>
+                        <td>
+                            <a href="/contact/<%= contact.email %>" class="btn btn-primary btn-sm"
+                                ><i class="bi bi-info-circle-fill"></i> detail</a
+                            >
+                        </td>
                     </tr>
-                    <% }) %>
+                    <% }) %> <% } %>
                 </tbody>
             </table>
         </div>
