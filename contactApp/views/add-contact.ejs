@@ -1,0 +1,31 @@
+<%- include('layouts/head.ejs') %>
+
+<div class="container mt-5">
+    <h1>Halaman tambah contact</h1>
+    <div class="card bg-info w-auto">
+        <div class="card-body">
+              <div class="row">
+        <div class="col-12">
+            <form>
+                <div class="mb-3">
+                    <label for="nama" class="form-label">Nama lengkap</label>
+                    <input type="text" class="form-control" id="nama" name="nama" required />
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" required />
+                    <div id="emailHelp" class="form-text">Kita tidak akan membagikan email anda</div>
+                </div>
+                <div class="mb-3">
+                    <label for="nohp" class="form-label">Nomor handphone</label>
+                    <input type="tel" class="form-control" id="nohp" name="nohp" />
+                </div>
+                <button type="submit" class="btn btn-primary">Tambah data</button>
+            </form>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+
+<%- include('layouts/footer.ejs') %>
