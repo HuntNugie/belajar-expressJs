@@ -1,4 +1,4 @@
-import { loadContact,detailContact } from "../utils/indexUtils.js"
+import { loadContact,detailContact,addContact } from "../utils/indexUtils.js"
 
 // untuk me render halaman daftar contact 
 export const index = (req,res)=>{
@@ -12,6 +12,12 @@ export const index = (req,res)=>{
 export const show = (req,res)=>{
     const contact = detailContact(req.params.email)
     res.render("detailContact",{contact})
+}
+
+// untuk menambahkan data ke json
+export const store = (req,res)=>{
+    addContact(req.body)
+    res.redirect("contact")
 }
 
 // untuk me render halaman form tambah contact

@@ -30,3 +30,15 @@ export const detailContact = email => {
   });
   return result;
 };
+
+// fungsi untuk save
+const saveContact = contact=>{
+  fs.writeFileSync(fileJson,JSON.stringify(contact),"utf-8")
+}
+
+// fungsi untuk tambah data
+export const addContact = contact=>{
+  const data = loadContact();
+  data.push(contact);
+  saveContact(data)
+}
