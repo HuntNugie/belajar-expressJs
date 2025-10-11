@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename)
 
 app.set("view engine","ejs")
 app.use(express.static(path.join(__dirname,"public")))
-app.use(express.urlencoded())
+app.use(express.urlencoded({extended:true}))
 
 
 app.use("/",route.home);

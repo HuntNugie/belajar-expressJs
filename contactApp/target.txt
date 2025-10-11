@@ -1,0 +1,16 @@
+1.menampilkan data dari json ()
+2.di dalam table hanya ada nama,nomor telepon dan aksi detail button ()
+3. membuat halaman detail button ()
+4. membuat fungsi untuk mencari dari data json sesuai email () 
+5. menggunakan hasil dari pencarian fungsi mencari berdasarkan email nya untuk halaman detail ()
+6. error handling ketika daftar contact nya kosong ()
+7. error handling ketika detail contact nya tidak ada ()
+8. membuat halaman form tambah data ()
+9. membuat fungsi untuk tambah data ()
+10. membuat fungsi untuk save tambah data ()
+11. membat validator dengan express validator
+12. kelola jika tidak valid tampilkan alert
+13. tambahkan flash massage(express-session,cookie-parse,connect-flash)
+
+pertanyaan 
+1. perpindahan nya kapan
