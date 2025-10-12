@@ -8,9 +8,10 @@
 8. membuat halaman form tambah data ()
 9. membuat fungsi untuk tambah data ()
 10. membuat fungsi untuk save tambah data ()
-11. membat validator dengan express validator
+11. membat validator dengan express validator ()
 12. kelola jika tidak valid tampilkan alert
 13. tambahkan flash massage(express-session,cookie-parse,connect-flash)
+14. membuat fitur untuk delete (gunakan restfull serta membuat button delete)
+15. membuat halaman untuk edit
+16. membuat fitur untuk update(gunakan restfull serta membuat button update)
 
-pertanyaan 
-1. perpindahan nya kapan

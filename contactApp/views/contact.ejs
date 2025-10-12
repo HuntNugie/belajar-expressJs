@@ -36,6 +36,9 @@
                             <a href="/contact/<%= contact.email %>" class="btn btn-primary btn-sm"
                                 ><i class="bi bi-info-circle-fill"></i> detail</a
                             >
+                            <a href="/contact/<%= contact.email %>" class="btn btn-danger btn-sm" onclick="return confirm('apakah kamu yakin ingin menghapus?')"
+                                ><i class="bi bi-trash-fill"></i> Hapus</a
+                            >
                         </td>
                     </tr>
                     <% }) %> <% } %>
