@@ -1,4 +1,4 @@
-import { loadContact,detailContact,addContact } from "../utils/indexUtils.js"
+import { loadContact,detailContact,addContact,destroyContact } from "../utils/indexUtils.js"
 import { validationResult } from "express-validator"
 // untuk me render halaman daftar contact 
 export const index = (req,res)=>{
@@ -20,11 +20,11 @@ export const store = (req,res)=>{
     const result = validationResult(req)
     if(result.errors.length !== 0){
         req.flash("errors",result.array())
-        res.redirect("/contact/add")
+        return res.redirect("/contact/add")
     }else{
         addContact(req.body)
         req.flash("success","berhasil menambahkan kontak")
-        res.redirect("contact")
+        return res.redirect("/contact")
     }
 
 }
@@ -32,4 +32,17 @@ export const store = (req,res)=>{
 // untuk me render halaman form tambah contact
 export const create = (req,res)=>{
     res.render("add-contact",{errors:req.flash("errors")})
+}
+
+// untuk hapus
+export const destroy = (req,res)=>{
+    const email = req.params.email;
+    const hapus = destroyContact(email)
+    if(hapus){
+        req.flash("success","Berhasil menghapus kontak")
+        return res.redirect("/contact")
+    }else{
+        req.flash("error","gagal menghapus kontak")
+        return res.redirect("/contact")
+    }
 }

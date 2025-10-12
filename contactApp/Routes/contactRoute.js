@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { index,show,create,store } from "../Controller/ContactController.js";
+import { index,show,create,store,destroy} from "../Controller/ContactController.js";
 import { cekEmail } from "../utils/indexUtils.js";
 import { body,check } from "express-validator";
 const route = Router()
@@ -16,7 +16,12 @@ route.post("/",[body("nama").notEmpty().withMessage("nama tidak boleh kosong"),b
     }
     return true
 })],store)
+// route untuk hapus 
+route.delete("/delete/:email",destroy)
+
 // untuk detail berdasarkan email
 route.get("/:email",show)
+
+
 
 export default route

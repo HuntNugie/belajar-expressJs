@@ -49,3 +49,14 @@ export const cekEmail = email=>{
   const result = data.find(el=>el.email === email)
   return result
 }
+
+// fungsi untuk menghapus data
+export const destroyContact = email=>{
+  const data = loadContact();
+  if(cekEmail(email)){
+    const result = data.filter(el=>el.email !== email);
+    saveContact(result)
+    return true
+  }
+  return false
+}

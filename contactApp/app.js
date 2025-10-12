@@ -13,6 +13,8 @@ import session from "express-session"
 import cookieParser from "cookie-parser"
 // import flash 
 import flash from "connect-flash"
+// import method-overide
+import methodOveride from "method-override"
 // pasang config nya agar bisa di baca isi dari .env nya
 dotenv.config();
 // instance express app nya
@@ -33,6 +35,8 @@ app.use(session({
 }))
 // buat untuk flash nya
 app.use(flash())
+// buat untuk method ovveride
+app.use(methodOveride("_method"))
 // middleware express untuk file file static
 app.use(express.static(path.join(__dirname,"public")))
 // untuk mendapatkan isi kiriman dari form agar bisa di tangkap di req.body dan akan berbentuk object

@@ -36,9 +36,11 @@
                             <a href="/contact/<%= contact.email %>" class="btn btn-primary btn-sm"
                                 ><i class="bi bi-info-circle-fill"></i> detail</a
                             >
-                            <a href="/contact/<%= contact.email %>" class="btn btn-danger btn-sm" onclick="return confirm('apakah kamu yakin ingin menghapus?')"
-                                ><i class="bi bi-trash-fill"></i> Hapus</a
+                        <form action="/contact/delete/<%= contact.email %>?_method=DELETE" method="post">
+                            <button type="submit" class="btn btn-danger btn-sm m-1" onclick="return confirm('apakah kamu yakin ingin menghapus?')"
+                                ><i class="bi bi-trash-fill"></i> Hapus</button
                             >
+                            </form>
                         </td>
                     </tr>
                     <% }) %> <% } %>
