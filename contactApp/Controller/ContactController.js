@@ -18,9 +18,11 @@ export const show = (req,res)=>{
 export const store = (req,res)=>{
     const result = validationResult(req)
     if(result.errors.length !== 0){
-        res.status(400).json(result.array())
+        req.flash("errors",result.array())
+        res.redirect("/contact/add")
     }else{
         addContact(req.body)
+        req.flash("success","berhasil menambahkan kontak")
         res.redirect("contact")
     }
 
@@ -28,5 +30,5 @@ export const store = (req,res)=>{
 
 // untuk me render halaman form tambah contact
 export const create = (req,res)=>{
-    res.render("add-contact")
+    res.render("add-contact",{errors:req.flash("errors")})
 }

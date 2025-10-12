@@ -7,6 +7,17 @@
               <div class="row">
         <div class="col-12">
             <form method="POST" action="/contact">
+                <% if (errors.length !== 0) { %>
+                 <div class="mb-3">
+                    <div class="alert alert-danger" role="alert">
+                        <ul>
+                        <% errors.forEach(element => { %>
+                            <li><%= element.msg %></li>
+                        <% }) %>
+                        </ul>
+                    </div>
+                 </div>
+                <% } %>
                 <div class="mb-3">
                     <label for="nama" class="form-label">Nama lengkap</label>
                     <input type="text" class="form-control" id="nama" name="nama" required />

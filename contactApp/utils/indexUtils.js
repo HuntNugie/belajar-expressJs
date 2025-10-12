@@ -42,3 +42,10 @@ export const addContact = contact=>{
   data.push(contact);
   saveContact(data)
 }
+
+// fungsi untuk mengecek apakah email nya sama
+export const cekEmail = email=>{
+  const data = loadContact();
+  const result = data.find(el=>el.email === email)
+  return result
+}
