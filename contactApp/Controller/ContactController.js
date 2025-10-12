@@ -17,7 +17,7 @@ export const show = (req,res)=>{
 // untuk menambahkan data ke json
 export const store = (req,res)=>{
     const result = validationResult(req)
-    if(result.length === 0){
+    if(result.errors.length !== 0){
         res.status(400).json(result.array())
     }else{
         addContact(req.body)

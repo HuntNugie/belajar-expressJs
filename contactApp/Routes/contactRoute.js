@@ -8,7 +8,7 @@ route.get("/",index)
 route.get("/add",create)
 
 // route untuk menambahkan data ke json
-route.post("/",[body("email").isEmail()],store)
+route.post("/",[body("email","Format email salah").isEmail()],store)
 // untuk detail berdasarkan email
 route.get("/:email",show)
 
