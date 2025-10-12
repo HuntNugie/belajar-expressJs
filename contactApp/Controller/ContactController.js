@@ -4,7 +4,8 @@ import { validationResult } from "express-validator"
 export const index = (req,res)=>{
     const contacts = loadContact()
     res.render("contact",{
-        contacts
+        contacts,
+        berhasil:req.flash("success")
     })
 }
 
