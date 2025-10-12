@@ -1,5 +1,5 @@
 import { loadContact,detailContact,addContact } from "../utils/indexUtils.js"
-
+import { validationResult } from "express-validator"
 // untuk me render halaman daftar contact 
 export const index = (req,res)=>{
     const contacts = loadContact()
@@ -16,8 +16,14 @@ export const show = (req,res)=>{
 
 // untuk menambahkan data ke json
 export const store = (req,res)=>{
-    addContact(req.body)
-    res.redirect("contact")
+    const result = validationResult(req)
+    if(result.length === 0){
+        res.status(400).json(result.array())
+    }else{
+        addContact(req.body)
+        res.redirect("contact")
+    }
+
 }
 
 // untuk me render halaman form tambah contact
