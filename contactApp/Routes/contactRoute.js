@@ -21,7 +21,13 @@ route.delete("/delete/:email",destroy)
 // route untuk form edit
 route.get("/edit/:email",edit)
 // route untuk update
-route.put("/update/:email",update)
+route.put("/update/:email",[body("nama").notEmpty().withMessage("nama tidak boleh kosong"),body("nohp").isMobilePhone("id-ID").withMessage("nomor hp harus menggunakan nomor telepon indonesia"),body("email","Format email salah").isEmail().notEmpty().custom((value,{req})=>{
+    const result = cekEmail(value)
+    if( value !== req.body.oldEmail && result){
+        throw new Error("email sudah di gunakan oleh orang lain")
+    }
+    return true
+})],update)
 // untuk detail berdasarkan email
 route.get("/:email",show)
 

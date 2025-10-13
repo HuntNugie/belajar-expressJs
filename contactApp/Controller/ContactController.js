@@ -55,7 +55,15 @@ export const edit = (req,res)=>{
 
 // untuk update
 export const update = (req,res)=>{
-    const data = req.body
-    updateContact(data,data.oldEmail)
-   res.redirect("/contact")
+    const validation = validationResult(req)
+    if(validation.errors.length !== 0){
+       req.flash("errors",validation.array()); 
+       return res.redirect(`/contact/edit/${req.body.oldEmail}`)
+    }else{
+        const data = req.body
+        updateContact(data,data.oldEmail)
+        req.flash("success","Berhasil mengupdate data")
+        res.redirect("/contact")
+    }
+
 }

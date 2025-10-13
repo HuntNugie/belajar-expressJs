@@ -65,8 +65,7 @@ export const destroyContact = email=>{
 export const updateContact = (contactBaru,emailLama) =>{
   const contact = loadContact();
   const result = contact.filter(el=>el.email !== emailLama);
-  console.log(result)
-   delete contactBaru.oldEmail
-   result.push(contactBaru)
-   saveContact(result)
+  delete contactBaru.oldEmail
+  result.push(contactBaru)
+  saveContact(result)
 }
