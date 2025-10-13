@@ -1,4 +1,4 @@
-import { loadContact,detailContact,addContact,destroyContact } from "../utils/indexUtils.js"
+import { loadContact,detailContact,addContact,destroyContact,updateContact } from "../utils/indexUtils.js"
 import { validationResult } from "express-validator"
 // untuk me render halaman daftar contact 
 export const index = (req,res)=>{
@@ -51,4 +51,11 @@ export const destroy = (req,res)=>{
 export const edit = (req,res)=>{
     const data = detailContact(req.params.email)
     res.render("edit-contact",{contact:data,errors:req.flash("errors")})
+}
+
+// untuk update
+export const update = (req,res)=>{
+    const data = req.body
+    updateContact(data,data.oldEmail)
+   res.redirect("/contact")
 }

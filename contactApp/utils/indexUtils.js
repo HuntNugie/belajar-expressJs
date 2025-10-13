@@ -60,3 +60,13 @@ export const destroyContact = email=>{
   }
   return false
 }
+
+// fungsi untuk mengupdate data
+export const updateContact = (contactBaru,emailLama) =>{
+  const contact = loadContact();
+  const result = contact.filter(el=>el.email !== emailLama);
+  console.log(result)
+   delete contactBaru.oldEmail
+   result.push(contactBaru)
+   saveContact(result)
+}

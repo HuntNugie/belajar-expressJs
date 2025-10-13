@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { index,show,create,store,destroy,edit} from "../Controller/ContactController.js";
+import { index,show,create,store,destroy,edit, update} from "../Controller/ContactController.js";
 import { cekEmail } from "../utils/indexUtils.js";
 import { body,check } from "express-validator";
 const route = Router()
@@ -20,6 +20,8 @@ route.post("/",[body("nama").notEmpty().withMessage("nama tidak boleh kosong"),b
 route.delete("/delete/:email",destroy)
 // route untuk form edit
 route.get("/edit/:email",edit)
+// route untuk update
+route.put("/update/:email",update)
 // untuk detail berdasarkan email
 route.get("/:email",show)
 

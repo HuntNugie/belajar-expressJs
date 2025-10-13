@@ -6,7 +6,7 @@
         <div class="card-body">
               <div class="row">
         <div class="col-12">
-            <form method="POST" action="/contact">
+            <form method="POST" action="/contact/update/<%= contact.email %>?_method=PUT">
                 <input type="hidden" name="oldEmail" value="<%= contact.email %>">
                 <% if (errors.length !== 0) { %>
                  <div class="mb-3">
