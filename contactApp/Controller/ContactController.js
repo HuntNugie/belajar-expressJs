@@ -46,3 +46,9 @@ export const destroy = (req,res)=>{
         return res.redirect("/contact")
     }
 }
+
+// untuk form edit
+export const edit = (req,res)=>{
+    const data = detailContact(req.params.email)
+    res.render("edit-contact",{contact:data,errors:req.flash("errors")})
+}
